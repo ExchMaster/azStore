@@ -1,0 +1,10 @@
+{
+	"version": "1.0.0",
+	"name": "gensas",
+	"private": true,
+	"dependencies": {
+		"azure-storage": "^2.10.2",
+		"jsonwebtoken": "^8.5.0",
+		"jwt-decode": "^2.2.0"
+	}
+}

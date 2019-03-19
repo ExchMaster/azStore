@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang=en-us>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv=“Pragma” content=”no-cache”>
+    <meta http-equiv=“Expires” content=”-1″>
+    <meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
+    <title>Project Share - Azure Storage</title>
+    <link rel="stylesheet" href="./css/w3.css">
+    <link rel="stylesheet" href="./css/w3-colors-highway.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <script src="./js/adal.min.js"></script>
+    <script src="./js/azure-storage.file.min.js"></script>
+    <script src="./js/app.js"></script>
+</head>
+
+<body>
+    <div class='docMargin w3-container'>
+        <header>
+            <h1>Project Connect</h1>
+            <p>This application permits authorized users to store & share project files in a centrailized repository.</p>
+        </header>
+        <hr>
+        <p>
+            <h4 class="displayInline">Status: </h4><label id=sasStatus>..Obtaining token</label><span id="sasRetry"></span>&nbsp;&nbsp;
+            <!--<a href="/.auth/logout">Sign out</a>-->
+            <a href="/.auth/logout" onclick="callLogout()">Log out</a>&nbsp;&nbsp;(<span id="username"></span>)
+        </p>
+        <hr>
+        <section id="Create">
+            <h3 class="displayInline">Select Project:</h3>
+            <select id='projectList' name='projectList' onchange="getSSAS()"></select>
+            <p>Please select a project name from the list above to begin working. The project name will correspond to a
+                container(folder) where all files associated with the project will be stored. After selecting a project
+                folder, utilize the related options for management purposes.
+                <a href="#" id="toggle"><b>Click here toggle option help</b></a>
+            </p>
+            <div id="optionHelp">
+                <p>
+                    <ul>
+                        <nav>
+                            <li><b>Select Project:</b> Select a project folder to begin. A project
+                                folder is the root of the folder tree containing all the directories and files related
+                                to that specific project.</li>
+                            <li><b>Create Directory:</b> Creates a new directory in the currently selected project with
+                                the
+                                name specified in 'New Directory Name'.</li>
+                            <li><b>Up One Level:</b> Moves 'Up One Level' from the current directory to the parent
+                                directory and automatically enumerates files.</li>
+                            <li><b>Browse:</b> Allows you to select one or more files for upload to the current project
+                                and
+                                current directory.</li>
+                            <li><b>Upload File:</b> Uploades the selected file(s) to the current project and current
+                                directory</li>
+                            <li><b>View:</b>Opens the corresponding directory.</li>
+                            <li><b>Download:</b> Opens/downloads the corresponding file</li>
+                            <li><b>Delete:</b> Deletes the corresponding file or directory. Directories must be empty
+                                before delete operation will complete successfully.</li>
+                        </nav>
+                    </ul>
+                </p>
+            </div>
+            <div id="result"></div>
+        </section>
+        <hr>
+        <section id="Upload">
+            <h3>Manage Project Files</h3> <span id="userComms"></span>
+            <p>
+                    <!--<label>Selected Project: </label></b> <input type="text" id="container" disabled=true value="No project selected" />-->
+                    <b>Current Directory:&nbsp;&nbsp;<span id="path"></span></b>
+            </p>
+            <p><label><b>New Directory Name:</b> </label> <input type="text" value="mydirectory" id="newDirName"/>
+                <button id="newDirectory" class="w3-button w3-round-xlarge w3-highway-green genBtn" onclick="createDirectory()" disabled>Create
+                    Directory</button>
+                <button class="w3-button w3-round-xlarge w3-highway-green genBtn" onclick="backDirectory()">Up One
+                    Level</button>
+                <input type="file" class="hidden" id="files" onclick="displayProcess(0)" multiple />
+                <span class="w3-button w3-round-xlarge w3-highway-green genBtn" id="select-button" >Select File(s)</span><span
+                    id="numFilesSelected"></span>
+                <button class="w3-button w3-round-xlarge w3-highway-green genBtn" id="upload-button" onclick="createFileFromStream(false)" disabled>Upload
+                    File(s)</button>
+            </p>
+            <div class="progress">
+                <div id="progress" class="w3-progressbar w3-highway-green w3-center" role="progressbar" aria-valuenow="60"
+                    aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                    0%
+                </div>
+            </div>
+            </p>
+            <div id="directoryFiles"></div>
+        </section>
+
+
+        <div id="myModal" class="w3-modal">
+
+            <!-- Modal content -->
+            <div class="w3-modal-content w3-animate-bottom">
+                <div class="w3-container w3-highway-green">
+                    <span id="modalX" class="w3-button w3-display-topright">&times;</span>
+                    <h2>Confirm Delete</h2>
+                </div>
+                <div class="w3-container">
+                    <p id="delSpecContent"></p>
+                </div>
+                <div class="w3-container w3-light-grey">
+                    <button id="modalCancel" class="w3-button w3-round-xlarge w3-highway-green w3-right genBtn">Cancel</button>
+                    <button id="finalDelete" class="w3-button w3-round-xlarge w3-highway-red w3-right genBtn">Delete</button>
+
+                </div>
+            </div>
+
+        </div>
+        <!--End of Modal dialog box for delete operations-->
+
+        <hr>
+        <footer>
+            <!--Stuff to put here, contact info, get help, nav links, whatever, tbd by ops team-->
+        </footer>
+    </div>
+</body>
+
+</html>

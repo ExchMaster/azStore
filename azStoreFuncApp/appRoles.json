@@ -1,0 +1,72 @@
+[
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "displayName": "Project Connect PShare3 ReadWrite",
+      "id": "e9c185e7-88cc-4da7-a374-04a9598ebb5f",
+      "isEnabled": true,
+      "description": "Users associated with this role have read/write write access to the files contained within the 'pshare3' project root folder",
+      "value": "connect_pshare3_readwrite"
+    },
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "displayName": "Project Connect PShare3 Read",
+      "id": "afaa18c7-f842-423b-84c5-6cd253dd300d",
+      "isEnabled": true,
+      "description": "Users associated with this role have read access to the files contained within the 'pshare3' project root folder",
+      "value": "connect_pshare3_read"
+    },
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "displayName": "Project Connect PShare2 ReadWrite",
+      "id": "8983c716-ad8d-4f29-8390-1e6cc6167406",
+      "isEnabled": true,
+      "description": "Users associated with this role have read/write write access to the files contained within the 'pshare2' project root folder",
+      "value": "connect_pshare2_readwrite"
+    },
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "displayName": "Project Connect PShare2 Read",
+      "id": "447404a6-69e6-452f-82c2-037564d89f83",
+      "isEnabled": true,
+      "description": "Users associated with this role have read access to the files contained within the 'pshare2' project root folder",
+      "value": "connect_pshare2_read"
+    },
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "displayName": "Project Connect PShare1 ReadWrite",
+      "id": "4d197d20-24af-495b-880b-2069ca067d6d",
+      "isEnabled": true,
+      "description": "Users associated with this role have read/write write access to the files contained within the 'pshare1' project root folder",
+      "value": "connect_pshare1_readwrite"
+    },
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "displayName": "Project Connect PShare1 Read",
+      "id": "b54f3e0c-a36e-4773-bec6-7f700b9d6d4c",
+      "isEnabled": true,
+      "description": "Users associated with this role have read access to the files contained within the 'pshare1' project root folder",
+      "value": "connect_pshare1_read"
+    },
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "displayName": "Project Connect Full Access",
+      "id": "1b4f816e-5eaf-48b9-8613-7923830595ad",
+      "isEnabled": true,
+      "description": "Users associated with this role have read/write access to all project files within the BSAW web application",
+      "value": "connect_full_access"
+    }
+  ]
